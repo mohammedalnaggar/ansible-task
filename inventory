@@ -1,0 +1,17 @@
+[web]
+172.168.0.20
+
+[app]
+172.168.0.30
+
+[db]
+172.168.0.40
+
+[general:children]
+web
+app
+db
+
+[general:vars]
+ansible_ssh_user = vagrant
+
