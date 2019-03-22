@@ -1,14 +1,10 @@
----
-
-- name: configure httpd play
-  hosts: web
-  become: true
-  tasks:
-    - name: installing apache (httpd service)
-      yum: name=httpd state=present
-    - name: start apache server
-      service: name=httpd state=started
-    - name:  configuring apache as a proxy
-      copy:
-        src: 
-        dest: /etc/httpd/conf.d/proxy.conf
+- name: installing apache (httpd service)
+  yum: name=httpd state=present
+- name: start apache server
+  service:
+    name: httpd
+    state: started
+- name: configuring apache as a proxy
+  copy:
+    src: virtualhost.conf 
+    dest: /etc/httpd/conf.d/proxy.conf
