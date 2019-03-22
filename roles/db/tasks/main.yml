@@ -1,0 +1,8 @@
+- name: installing Mongo DB
+  yum:
+    name: mongo
+    state: present
+- name: start MongoDB
+  service:
+    name: mongo
+    state: started
