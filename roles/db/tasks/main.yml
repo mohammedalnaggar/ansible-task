@@ -1,8 +1,12 @@
+- name: adding mongo repo
+  copy:
+    src: mongodb-org.repo
+    dest: /etc/yum.repos.d/
 - name: installing Mongo DB
   yum:
-    name: mongo
+    name: mongodb-org
     state: present
 - name: start MongoDB
   service:
-    name: mongo
+    name: mongod
     state: started
