@@ -11,15 +11,22 @@
   file: 
     path: /var/nodejs
     state: directory
+
 - name: copy server.js file
   copy:
     src: nodeJS_server
-    dest: /var/nodejs/nodeJS_server
+    dest: /var/nodejs/
+
+- name: change directory and install dependencies
+  command: chdir=/var/nodejs/nodeJS_server/ npm install
 
 - name: check running nodejs application
   command: forever list
   register: forever_list
   changed_when: false
+
+- name: start NODEJS APP
+  command: node /var/nodejs/nodeJS_server/index.js
 
 - name: start nodejs app
   command: forever start /var/nodejs/nodeJS_server/index.js
