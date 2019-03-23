@@ -1,0 +1,75 @@
+const userModel = require('../models/userModel')
+const authorModel = require('../models/authorModel')
+const bookModel = require('../models/bookModel')
+const authorsRouter = express.Router()
+//list authors to user
+authorsRouter.get("/", (req, res) => {
+    authorModel.find({}, (err, data) => {
+        if (!err)
+            res.send(data);
+    });
+});
+
+
+//information and data for Author page
+authorsRouter.get("/:idU/:idA", (req, res) => {
+    const data_object = {
+        author: null,
+        authorbooks: null
+    }
+    authorModel.findOne({
+            _id: req.params.idA
+        })
+        .then((data) =>
+         {
+            data_object.author = data
+        })
+    const authorbooks = null
+    bookModel.find({
+        author_id: req.params.idA
+    }, function (err, data)
+     {
+        if (!err)
+            authorbooks = data
+    }
+    )
+    const userbooks = null
+    userModel.findOne(
+        {
+        _id: req.params.idU
+    }, function (err, data) 
+    {
+        if (!err)
+            userbooks = data.books
+    }
+    )
+
+    authorbooks.forEach(function (authorbook) {
+        userbooks.forEach(function (userbook) {
+            if (authorbook._id === userbook.book_id) {
+                authorbook.status = userbook.status
+                authorbook.user_rating = userbook.user_rating
+            }
+            else
+            {
+                authorbook.status = null
+                authorbook.user_rating = null
+
+            }
+
+        }
+        )
+
+    }
+    ).then(() => 
+    {
+        data_object.authorbooks = authorbooks
+        res.send(data_object)
+    }
+    )
+}
+)
+
+
+
+module.exports = authorsRouter
