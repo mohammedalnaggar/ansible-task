@@ -1,0 +1,6 @@
+---
+- name: configure web server
+  hosts: app
+  become: true
+  roles:
+   - app
