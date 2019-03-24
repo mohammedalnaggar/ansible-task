@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title> Book Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- for the header -->
+    <link rel="stylesheet" href="./assets/css/demo.css">
+    <link rel="stylesheet" href="./assets/css/header-user-dropdown.css">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+    <!-- drop down menu style -->
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body id="top">
+
+
+    <!-- header -->
+    <header class="header-user-dropdown">
+
+        <div class="header-limiter">
+            <h1><a href="index.html">Nahm<span>Reads</span></a></h1>
+
+            <nav>
+                <a href="index.html" class="button">Home</a>
+                <a href="categories.html" class="button">Categories</a>
+                <a href="books.html" class="button">Books</a>
+                <a href="authors.html" class="button">Authors</a>
+            </nav>
+
+
+            <div class="header-user-menu">
+                <img src="images/2.jpg" alt="User Image" />
+
+                <ul>
+                    <li><a href="#" class="highlight">Logout</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Book info section -->
+            <div class="thumbnails">
+
+                <div class="box">
+                    <img id="bookImage" alt="" class="image fit"  />
+
+                    <div class="inner">
+                        <!-- status selector -->
+                        <div class="dropdown">
+                            <div class="select">
+                                <span>Select shelve</span>
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <input id="addAuthorChoice" type="hidden" name="author">
+                            <ul class="dropdown-menu">
+                                <li>Want to read</li>
+                                <li>Reading</li>
+                                <li>Read</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    
+                   <!-- rating  -->
+                   <div id=""  class="rate" style="margin-left: 5px;width: 100%">
+                        <img class="stars" id="0" src="images/emptystar.png">
+                        <img class="stars" id="1" src="images/emptystar.png">
+                        <img class="stars" id="2" src="images/emptystar.png">
+                        <img class="stars" id="3" src="images/emptystar.png">
+                        <img class="stars" id="4" src="images/emptystar.png">
+                    </div>
+                    <br>
+                </div>
+
+                <div class="box" style="width:60%; text-align: left;padding: 2%">
+                    <br>
+                    <h2 id="bookName">Book Name</h2>
+                    <h3> By | <span id="bookAuthor">Book Author</span></h3>
+                    <h3><span id="bookCategory"> Category Name </span> Category</h3>
+
+
+                    <hr>
+
+                    <!-- Average rating  -->
+                    <div class="rate" style="margin-left: 5px;">
+                        <img style="width:4%" id="_0" src="images/emptystar.png">
+                        <img style="width:4%" id="_1" src="images/emptystar.png">
+                        <img style="width:4%" id="_2" src="images/emptystar.png">
+                        <img style="width:4%" id="_3" src="images/emptystar.png">
+                        <img style="width:4%" id="_4" src="images/emptystar.png">
+                        <div>
+                            <br>
+                            <span id="avgRating">2.5</span>
+                            <span>|</span>
+                            <span id="ratesNum">300 </span>
+                            <span>ratings</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="box" style="width:93%; text-align: left;padding-left: 5%;">
+                    <h2>Users' Reviews</h2>
+                </div>
+
+            </div>
+
+
+
+            <!-- reviews section  -->
+            <div class="thumbnails2" id="reviewDiv" style="display: none">
+
+                <div class="box userReviewData" style="width:20%">
+                    <!-- <img alt="userImage"> -->
+                    <h1>
+                        User name
+                    </h1>
+                </div>
+                <div class="box userReviewText" style="width:70%">
+                    <p style="padding:2%">
+                        User review will be displayed here.
+                    </p>
+                </div>
+            </div>
+            <div class="thumbnails">
+                <hr>
+                <div style="width:60%">
+                    <h2>New Review</h2>
+                    <textarea rows="7" placeholder="Insert your review about this book."></textarea>
+                </div>
+
+                <button type="submit" id="addReviewBtn" style="align-self: center; margin-left: 5%" > Send </button>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <p>All rights reserved. </p>
+
+            <p class="copyright">&copy; 2019 NahmReads Inc. </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- my own scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/requestPhoto.js"></script>
+    <script src="js/bookPage.js"></script>
+    <!-- <script src="js/books.js"></script> -->
+
+
+    <!-- header -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+
+</body>
+
+</html>

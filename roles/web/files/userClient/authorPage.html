@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+    <title> Author Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- for the header -->
+    <link rel="stylesheet" href="./assets/css/demo.css">
+    <link rel="stylesheet" href="./assets/css/header-user-dropdown.css">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+    <!-- drop down menu style -->
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body id="top">
+
+
+    <!-- header -->
+    <header class="header-user-dropdown">
+
+        <div class="header-limiter">
+            <h1><a href="index.html">Nahm<span>Reads</span></a></h1>
+
+            <nav>
+                <a href="index.html" class="button">Home</a>
+                <a href="categories.html" class="button">Categories</a>
+                <a href="books.html" class="button">Books</a>
+                <a href="authors.html" class="button">Authors</a>
+            </nav>
+
+
+            <div class="header-user-menu">
+                <img src="images/2.jpg" alt="User Image" />
+
+                <ul>
+                    <li><a href="#" class="highlight">Logout</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Boxes -->
+            <div class="thumbnails">
+
+                <!-- author image -->
+                <div class="box" style="height:20%">
+                    <img src="" alt="" class="image fit" />
+                </div>
+
+                <!-- author info -->
+                <div class="box" style="width:65%; text-align: left;padding: 2%">
+                    <br>
+                    <h3 id="authorName"> Author Name</h3>
+                    <h3 id="BOD">DOB</h3>
+                </div>
+
+                <div class="box" style="width:100%; text-align: left;padding-left:  8%;padding:0.5%">
+                    <h2>Author's Books</h2>
+                </div>
+
+                <!-- author's books list -->
+                <div class="box" id="book_div" style="display:none">
+                    <img src="" alt="" class="image fit" />
+
+                    <div class="inner">
+
+                        <h2>Book Name</h2>
+
+                        <hr>
+                        <!-- Average rating  -->
+                        <div class="rate" style="margin-left: 5px;">
+                            <img id="_0" src="images/emptystar.png">
+                            <img id="_1" src="images/emptystar.png">
+                            <img id="_2" src="images/emptystar.png">
+                            <img id="_3" src="images/emptystar.png">
+                            <img id="_4" src="images/emptystar.png">
+
+                            <div style="margin:20px">
+                                <span>2.5</span>
+                                <span>|</span>
+                                <span>300 </span>
+                                <span>ratings</span>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <!-- status selector -->
+                        <div class="dropdown">
+                            <div class="select">
+                                <span>Select shelve</span>
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <input id="addAuthorChoice" type="hidden" name="author">
+                            <ul class="dropdown-menu">
+                                <li>Want to read</li>
+                                <li>Reading</li>
+                                <li>Read</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- rating  -->
+                    <div class="rate" style="margin-left: 5px;width: 100%">
+                        <img class="stars" id="0" src="images/emptystar.png">
+                        <img class="stars" id="1" src="images/emptystar.png">
+                        <img class="stars" id="2" src="images/emptystar.png">
+                        <img class="stars" id="3" src="images/emptystar.png">
+                        <img class="stars" id="4" src="images/emptystar.png">
+                    </div>
+                    <br>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <p>All rights reserved. </p>
+
+            <p class="copyright">&copy; 2019 NahmReads Inc. </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- my own scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/authorPage.js"></script>
+    <script src="js/requestPhoto.js"></script>
+
+
+    <!-- header -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+
+</body>
+
+</html>

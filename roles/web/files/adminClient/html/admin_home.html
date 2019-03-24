@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin home</title>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../css/admin_home.css">
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+
+    <!-- for the header -->
+    <link rel="stylesheet" href="../css/assets/demo.css">
+	<link rel="stylesheet" href="../css/assets/header-basic-light.css">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    
+    <!-- modal pakacge importer -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+
+    <header class="header-basic-light">
+
+        <div class="header-limiter">
+    
+            <h1><a href="#">Nahm<span>Reads</span></a></h1>
+    
+            <nav>
+                <a href="#" class="selected">Log out</a>
+            </nav>
+        </div>
+    
+    </header>
+
+    <div class="form">
+
+        <ul class="tab-group">
+            <li class="tab active" id="categoriesTab"><a href="#categories">Categories</a></li>
+            <li class="tab" id="booksTab" onclick="listAuthorsCategories()"><a href="#books">Books</a></li>
+            <li class="tab" id="authorsTab"><a href="#authors">Authors</a></li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div id="categories">
+                <h1>Welcome to Categories!</h1>
+                <form>
+
+                    <table id="categoriesTable" class="field-wrap" style="width:100%">
+
+                        <th class="cell" style="width: 200px;"> ID </th>
+                        <th class="cell" style="width: 900px;"> Name </th>
+                        <th class="cell" style="width: 250px;"> Actions </th>
+
+                        <tr id="categoriesFirstRow">
+                            <td style="width: 50px;"> </td>
+                            <td> </td>
+                            <td>
+                                <!-- <img src="../images/icons/delete.png" onclick="deleteRow(this)" style="width:50px; margin-right: 10%">
+                                <img src="../images/icons/edit.png" onclick="openEditForm(1, this)" style="width:48px"> -->
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="button button-block" onclick="openAddForm(1)" /> Add new Category!</button>
+
+                    <div class="form-popup" id="newCategoryForm"> <!-- new category popup div start-->
+                        <form class="form-container">
+                            <h1> Add a new Category</h1>
+
+                            <div class="field-wrap">
+                                <label>
+                                    Category Name<span class="req">*</span>
+                                </label>
+                                <input id="categoryAddTF" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+
+                            <div class="field-wrap">
+                                <button id="addNewCategoryBtn" type="submit" class="button" style="padding: 10px">
+                                    Submit</button>
+                                <button type="button" class="cancel" style="padding: 10px" onclick="closeAddForm(1)">Close</button>
+                            </div>
+                        </form>
+                    </div> <!-- new category popup div end -->
+
+                    <div class="form-popup" id="editCategoryForm"> <!-- edit category popup div start-->
+                        <form class="form-container">
+                            <h1> Edit an existing Category</h1>
+
+                            <div class="field-wrap">
+                                <label>
+                                    Category Name<span class="req">*</span>
+                                </label>
+                                <input id="categoryEditTF" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+
+                            <div class="field-wrap">
+                                <button id="editCategoryBtn" type="submit" class="button" style="padding: 10px">
+                                    Submit</button>
+                                <button type="button" class="cancel" style="padding: 10px" onclick="closeEditForm(1)">Close</button>
+                            </div>
+                        </form>
+                    </div> <!-- edit category popup div end-->
+
+                </form>
+            </div> <!-- categories div -->
+
+            <div id="books">
+                <h1>Welcome to Books!</h1>
+                <form>
+                    <table id="booksTable" class="field-wrap" style="width:100%">
+                        <th class="cell" style="width:50px"> ID </th>
+                        <th class="cell"> Photo </th>
+                        <th class="cell"> Name </th>
+                        <th class="cell"> CategoryID </th>
+                        <th class="cell"> AuthorID </th>
+                        <th class="cell"> Actions </th>
+
+                        <tr id="booksFirstRow">
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>
+                                <!-- <img src="../images/icons/delete.png" onclick="deleteRow(this)" style="width:50px; margin-right: 10%">
+                                <img src="../images/icons/edit.png" onclick="openEditForm(2,this)" style="width:48px"> -->
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <button id="reqAddBookOptions" class="button button-block" onclick="openAddForm(2)" />Add new Book!</button>
+                    
+                    <div class="form-popup" id="newBookForm"> <!-- new book popup div start -->
+                        <form class="form-container">
+                            <h1> Add a new Book</h1>
+
+                            <div class="field-wrap">
+                                <label>
+                                    Book Name<span class="req">*</span>
+                                </label>
+                                <input id="newBookName" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+
+                            <div class="container">
+
+                                <div class="dropdown">
+                                    <div class="select">
+                                        <span>Select Category</span>
+                                        <i class="fa fa-chevron-left"></i>
+                                    </div>
+                                    <input id="addCategoryChoice" type="hidden" name="gender">
+                                    <ul class="dropdown-menu">
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="container">
+
+                                <div class="dropdown">
+                                    <div class="select">
+                                        <span>Select Author</span>
+                                        <i class="fa fa-chevron-left"></i>
+                                    </div>
+                                    <input id="addAuthorChoice" type="hidden" name="author">
+                                    <ul class="dropdown-menu">
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="upload-btn-wrapper">
+                                <button class="btn" aria-required="true">Upload book image</button>
+                                <input type="file"  class="uploadImage" name="myfile" required />
+                            </div>
+
+                            <div class="field-wrap" style="margin-top:50px">
+                                <button id="addNewBookBtn" type="submit" class="button" style="padding: 10px"> Submit</button>
+                                <button type="button" class="cancel" style="padding: 10px" onclick="closeAddForm(2)">Close</button>
+                            </div>
+
+                        </form>
+                    </div> <!-- new book popup div end -->
+
+                    <div class="form-popup" id="editBookForm"> <!-- edit book popup div start -->
+                        <form class="form-container">
+                            <h1> Edit an existing Book</h1>
+
+                            <div class="field-wrap">
+                                <label>
+                                    Book Name<span class="req">*</span>
+                                </label>
+                                <input id="editBookID" type="text" style="display:none"/>
+                                <input id="editBookName" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+
+                            <div class="container">
+
+                                <div class="dropdown">
+                                    <div class="select">
+                                        <span>Select Category</span>
+                                        <i class="fa fa-chevron-left"></i>
+                                    </div>
+                                    <input id="editCategoryChoice" type="hidden" name="gender">
+                                    <ul class="dropdown-menu">
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="container">
+
+                                <div class="dropdown">
+                                    <div class="select">
+                                        <span>Select Author</span>
+                                        <i class="fa fa-chevron-left"></i>
+                                    </div>
+                                    <input id="editAuthorChoice" type="hidden" name="author">
+                                    <ul class="dropdown-menu">
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="upload-btn-wrapper">
+                                <button class="btn" aria-required="true">Upload new image</button>
+                                <input type="file" class="uploadImage" name="myfile" required />
+                            </div>
+
+                            <div class="field-wrap" style="margin-top:50px">
+                                <button id="editBookBtn" type="submit" class="button" style="padding: 10px"> Submit</button>
+                                <button type="button" class="cancel" style="padding: 10px" onclick="closeEditForm(2)">Close</button>
+                            </div>
+
+                        </form>
+                    </div> <!-- edit book popup div end -->
+
+                </form>
+            </div> <!-- books div -->
+
+            <div id="authors">
+                <h1>Welcome to Authors!</h1>
+                <form>
+                    <table id="authorsTable" class="field-wrap" style="width:100%">
+                        <th class="cell" style="width: 50px;"> ID </th>
+                        <th class="cell"> Photo </th>
+                        <th class="cell"> First Name </th>
+                        <th class="cell"> Last Name </th>
+                        <th class="cell"> DOB </th>
+                        <th class="cell"> Actions </th>
+                        <tr id="authorsFirstRow">
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>
+                                <!-- <img src="../images/icons/delete.png" onclick="deleteRow(this)" style="width:50px; margin-right: 10%">
+                                <img src="../images/icons/edit.png" onclick="openEditForm(3, this)" style="width:48px"> -->
+                            </td>
+                        </tr>
+                    </table>
+                    <button id="reqAddAuthorOptions" class="button button-block" onclick="openAddForm(3)" />Add new
+                    Author!</button>
+
+                    <div class="form-popup" id="newAuthorForm"> <!-- new author popup div start -->
+                        <form class="form-container">
+                            <h1> Add a new Author</h1>
+
+                            <div class="upload-btn-wrapper">
+                                <button class="btn" aria-required="true">Upload author's image</button>
+                                <input type="file" class="uploadImage" name="newAuthorImage" required />
+                            </div>
+
+                            <div class="field-wrap">
+                                <label>
+                                    First Name<span class="req">*</span>
+                                </label>
+                                <input id="newAuthorFName" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+                            <div class="field-wrap">
+                                <label>
+                                    Last Name<span class="req">*</span>
+                                </label>
+                                <input id="newAuthorLName" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+
+                            <div class="field-wrap">
+                                <label>
+                                    Date of birth<span class="req">*</span>
+                                </label>
+                                <input id="newAuthorDOB" type="date" name="mydate" required placeholder="Enter your DOB"
+                                    style="margin-left:20%;width:80%" />
+                            </div>
+
+                            <div class="field-wrap" style="margin-top:50px">
+                                <button id="addNewAuthorBtn" type="submit" class="button" style="padding: 10px"> Submit</button>
+                                <button type="button" class="cancel" style="padding: 10px" onclick="closeAddForm(3)">Close</button>
+                            </div>
+
+                        </form>
+                    </div> <!-- new author popup div end -->
+                    <input id="editAuthorId" type="text" style="display:none" />
+                    <div class="form-popup" id="editAuthorForm"> <!-- edit author popup div start -->
+                        <form class="form-container">
+                            <h1> Edit an existing Author</h1>
+                            
+                            <div class="upload-btn-wrapper">
+                                <button class="btn" aria-required="true">Upload new image</button>
+                                
+                                <input type="file" class="uploadImage" name="newAuthorImage" required />
+                            </div>
+
+                            <div class="field-wrap">
+                                <label>
+                                    First Name<span class="req">*</span>
+                                </label>
+                                <input id="editAuthorFName" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+                            <div class="field-wrap">
+                                <label>
+                                    Last Name<span class="req">*</span>
+                                </label>
+        
+                                <input id="editAuthorLName" type="text" required autocomplete="off" style="width:100%" />
+                            </div>
+
+                            <div class="field-wrap">
+                                <label>
+                                    Date of birth<span class="req">*</span>
+                                </label>
+                                <input id="editAuthorDOB" type="date" name="mydate" required placeholder="Enter your DOB"
+                                    style="margin-left:20%;width:80%" />
+                            </div>
+
+                            <div class="field-wrap" style="margin-top:50px">
+                                <button id="editAuthorBtn" type="submit" class="button"  style="padding: 10px"> Submit</button>
+                                <button type="button" class="cancel" style="padding: 10px" onclick="closeEditForm(3)">Close</button>
+                            </div>
+
+                        </form>
+                    </div> <!-- edit author popup div end -->
+
+                </form>
+
+            </div> <!-- authors div -->
+
+        </div> <!-- tab-content div -->
+
+    </div> <!-- / the whole form -->
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../js/admin_home.js"></script>
+    <script src="../js/category.js"></script>
+    <script src="../js/book.js"></script>
+    <script src="../js/author.js"></script>
+    <script src="../js/photo.js"></script>
+
+
+</body>
+
+</html>
