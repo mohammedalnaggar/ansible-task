@@ -42,6 +42,17 @@ app.use('/users', usersRouter)
 // admin route handler
 app.use('/admin', adminRouter)
 
+/////////////////////////////////////////
+///////////// test
+
+
+app.use("/test", (req, res)=> {
+        res.send('hello from node')
+})
+
+
+
+
 //////   // AUTH  \\    ////////
 
 // const  ProtectedRoutes = express.Router(); 

@@ -1,10 +1,25 @@
 - name: installing apache (httpd service)
-  yum: name=httpd state=present
+  yum: 
+    name: httpd
+    state: present
+
 - name: start apache server
   service:
     name: httpd
     state: started
-- name: configuring apache as a proxy
+
+- name: copying front end files to web server
   copy:
-    src: virtualhost.conf 
-    dest: /etc/httpd/conf.d/proxy.conf
+    src: adminClient
+    dest: /var/www/html
+
+- name: copying user front end files to web server
+  copy:  
+    src: userClient
+    dest: /ver/www/html
+
+- name: change apache server configuration
+  copy: 
+    src: httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+

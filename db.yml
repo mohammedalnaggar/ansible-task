@@ -2,9 +2,5 @@
 - name: configure DB
   hosts: db
   become: true
-  vars:
-    mongodb_ver: 3.4
-    os_family: redhat
-    os_ver: 7
   roles: 
     - db

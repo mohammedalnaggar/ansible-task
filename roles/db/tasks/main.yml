@@ -9,7 +9,8 @@
     name: mongodb-org
     state: present
 
-- file:
+- name: changing the conf file ownership
+  file:
     path: /etc/mongod.conf
     owner: mongod
     group: mongod
