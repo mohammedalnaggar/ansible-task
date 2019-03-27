@@ -44,7 +44,7 @@ function shelve(status, book_id) {
       if (this.response) { location.reload(); console.log("hi") }
     }
   };
-  xhttp.open("POST", `http://127.0.0.1:5000/books/${book_id}/shelve`);
+  xhttp.open("POST", `http://172.168.0.30:5000/books/${book_id}/shelve`);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     user_id: localStorage.getItem("userId"),
@@ -107,7 +107,7 @@ function rating_request(book_id) {
   };
   //get book_id to send it to the route.
 
-  xhttp.open("POST", `http://127.0.0.1:5000/booksRouter/${book_id}/rate`);
+  xhttp.open("POST", `http://172.168.0.30:5000/booksRouter/${book_id}/rate`);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     user_id: localStorage.getItem("userId"),
@@ -190,7 +190,7 @@ function rate(div) {
     };
     //get book_id to send it to the route.
   
-    xhttp.open("POST", `http://127.0.0.1:5000/books/${book_id}/rate`);
+    xhttp.open("POST", `http://172.168.0.30:5000/books/${book_id}/rate`);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(JSON.stringify({
       user_id: localStorage.getItem("userId"),

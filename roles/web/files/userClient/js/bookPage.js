@@ -55,7 +55,7 @@ function fillBookPage() {
       })
     }
   };
-  xhttp.open("POST", `http://127.0.0.1:5000/books/${bookId}`);
+  xhttp.open("POST", `http://172.168.0.30:5000/books/${bookId}`);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     "user_id": `${userId}`
@@ -84,7 +84,7 @@ function showReviews() {
       })
     }
   };
-  xhttp.open("GET", `http://127.0.0.1:5000/books/${bookId}/comments`);
+  xhttp.open("GET", `http://172.168.0.30:5000/books/${bookId}/comments`);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send();
 
@@ -105,7 +105,7 @@ function AddReview() {
 
     }
   };
-  xhttp.open("POST", `http://127.0.0.1:5000/books/${bookId}/comments`);
+  xhttp.open("POST", `http://172.168.0.30:5000/books/${bookId}/comments`);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     comment: review,

@@ -5,7 +5,7 @@ function getImage(imageName,imageTag){
         imageTag.setAttribute("src",`data:image/png;base64,`+this.response)
       }
     };
-    xhttp.open("GET", `http://127.0.0.1:5000/photo/${imageName}`);
+    xhttp.open("GET", `http://172.168.0.30:5000/photo/${imageName}`);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send()
   

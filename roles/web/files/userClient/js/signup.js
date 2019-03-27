@@ -17,26 +17,6 @@ signup_button.addEventListener("click", (event) => {
 
 function request_response() {
 
-
-    // fetch("http://192.168.1.90:5000/admin", {
-    //     method: 'post',
-    //     headers: {
-    //       "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-    //     },
-    //     body: JSON.stringify({
-    //             first_name: signup_div.getElementsByTagName("input")[0].value,
-    //             last_name: signup_div.getElementsByTagName("input")[1].value,
-    //             email: signup_div.getElementsByTagName("input")[2].value,
-    //             password: signup_div.getElementsByTagName("input")[3].value
-    //         })
-    //   })
-    //   .then(json)
-    //   .then(function (data) {
-    //     console.log('Request succeeded with JSON response', data);
-    //   })
-    //   .catch(function (error) {
-    //     console.log('Request failed', error);
-    //   });
     
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -56,7 +36,7 @@ function request_response() {
               }
         }
     };
-    xhttp.open("POST", "http://127.0.0.1:5000/users");
+    xhttp.open("POST", "http://172.168.0.30:5000/users");
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(JSON.stringify({
         first_name: signup_div.getElementsByTagName("input")[0].value,

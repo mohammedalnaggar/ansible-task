@@ -31,7 +31,7 @@ function forget() {
               }
         }
     };
-    xhttp.open("POST", "http://127.0.0.1:5000/users/forget");
+    xhttp.open("POST", "http://172.168.0.30:5000/users/forget");
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(JSON.stringify({
         email: login_div2.getElementsByTagName("input")[0].value

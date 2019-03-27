@@ -31,7 +31,7 @@ function listAuthors() {
      // rate(div)
     }
   };
-  xhttp.open("GET", "http://127.0.0.1:5000/authors");
+  xhttp.open("GET", "http://172.168.0.30:5000/authors");
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send()
 };
