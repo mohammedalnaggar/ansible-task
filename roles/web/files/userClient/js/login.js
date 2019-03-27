@@ -19,7 +19,7 @@ function request_response_login() {
             if (this.response) {
                 let response = JSON.parse(this.response)
                 localStorage.setItem("userId",response.user_id)
-                window.location.href = "../index.html";
+                window.location.href = "../home.html";
               }
               else {
                 swal("Oops" ,"Invalid username or password!" ,  "error")

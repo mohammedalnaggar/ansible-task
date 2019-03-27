@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Home </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- for the header -->
+    <link rel="stylesheet" href="./assets/css/demo.css">
+    <link rel="stylesheet" href="./assets/css/header-user-dropdown.css">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+    <!-- my own css -->
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- rating -->
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="stars.css" /> -->
+
+</head>
+
+<body id="top">
+
+
+    <!-- header -->
+    <header class="header-user-dropdown">
+
+        <div class="header-limiter">
+            <h1><a href="index.html">Nahm<span>Reads</span></a></h1>
+
+            <nav>
+                <a href="index.html" class="button">Home</a>
+                <a href="categories.html" class="button">Categories</a>
+                <a href="books.html" class="button">Books</a>
+                <a href="authors.html" class="button">Authors</a>
+            </nav>
+
+
+            <div class="header-user-menu">
+                <img src="images/2.jpg" alt="User Image" />
+
+                <ul>
+                    <li><a href="#" class="highlight">Logout</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </header>
+
+    <section id="banner" data-video="./images/banner">
+        <div class="inner">
+            <header>
+                <h1>Welcome <span id="username"></span></h1>
+                <p>“A reader lives a thousand lives before he dies . . . The man who never reads lives only one.” <br />
+                    – George R.R. Martin
+
+            </header>
+            <a href="#main" class="more">Learn More</a>
+        </div>
+    </section>
+
+
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- tab bar -->
+        <div class="inner">
+
+            <ul class="tab-group">
+                <li class="tab active" id="allBooksTab"><a href="#all">All</a></li>
+                <li class="tab" id="readTab"><a href="#read">Read</a></li>
+                <li class="tab" id="readingTab"><a href="#reading">Reading</a></li>
+                <li class="tab" id="wantToReadTab"><a href="#wantToRead">Want to read</a></li>
+            </ul>
+
+        </div>
+
+        <div class="tab-content">
+
+            <!-- all tab -->
+            <div class="inner" id="all">
+
+                <div class="thumbnails">
+
+                    <div id="book_div" class="box" style="display:none">
+                        <img  class="image fit" alt="" />
+                        <div class="inner">
+                            <h3>The Blue Elephant</h3>
+                            <button class="button style3 fit"> Visit book page</button>
+                            <button class="button style3 fit"> Visit Author page</button>
+                            <hr>
+
+
+                            <!-- status selector -->
+                            <div class="dropdown">
+                                <div class="select">
+                                    <span>Select shelve</span>
+                                    <i class="fa fa-chevron-left"></i>
+                                </div>
+                                <input id="addAuthorChoice" type="hidden" name="author">
+                                <ul class="dropdown-menu">
+                                    <li>Want to read</li>
+                                    <li>Reading</li>
+                                    <li>Read</li>
+                                </ul>
+
+                            </div>
+
+                            <!-- rating  -->
+                            <div class="rate" style="margin-left: 5px;width: 100%">
+                                <br>
+                                <img class="stars" style="width:10%" id="0" src="images/emptystar.png">
+                                <img class="stars" style="width:10%" id="1" src="images/emptystar.png">
+                                <img class="stars" style="width:10%" id="2" src="images/emptystar.png">
+                                <img class="stars" style="width:10%" id="3" src="images/emptystar.png">
+                                <img class="stars" style="width:10%" id="4" src="images/emptystar.png">
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- read tab -->
+            <div class="inner" id="read">
+
+                <div class="thumbnails">
+
+
+
+                </div>
+            </div>
+
+            <!-- reading tab -->
+            <div class="inner" id="reading">
+
+                <div class="thumbnails">
+
+
+                </div>
+
+            </div>
+
+            <!-- want to read tab -->
+            <div class="inner" id="wantToRead" style="display:none">
+
+                <div class="thumbnails">
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <p>All rights reserved. </p>
+
+            <p class="copyright">&copy; 2019 NahmReads Inc. </p>
+        </div>
+    </footer>
+
+    <!-- Scripts for bootstrap -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- my own scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/requestPhoto.js"></script>
+    <script src="./js/home.js"></script>
+
+
+
+
+    <!-- header -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+</body>
+
+</html>
