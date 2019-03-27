@@ -50,43 +50,6 @@ app.use("/test", (req, res)=> {
         res.send('hello from node')
 })
 
-
-
-
-//////   // AUTH  \\    ////////
-
-// const  ProtectedRoutes = express.Router(); 
-
-// app.use('/auth', ProtectedRoutes);
-
-// ProtectedRoutes.use((req, res, next) =>{
-//     // check header for the token
-//     var token = req.headers['access-token'];
-//     // decode token
-//     if (token) {
-//       // verifies secret and checks if the token is expired
-//       jwt.verify(token, "naggarsecret", (err, decoded) =>{      
-//         if (err) {
-//           return res.json({ message: 'invalid token' });    
-//         } else {
-//           // if everything is good, save to request for use in other routes
-//           console.log(decoded)
-//           req.decoded = decoded;  
-//           // will route him to the next route handler with the decoded token attached
-//           next();
-//         }
-//       });
-
-//     } else {
-//       // if there is no token  
-//       res.send({ 
-//           hamani: 'no toke',
-//           message: 'No token provided.' 
-//       });
-//     }
-//   });
-
-
 // authors route handler
 app.use('/authors', authorsRouter)
 // categories route handler

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/goodReadsDB'
+const MONGO_URL = process.env.MONGO_URL || 'mongodb://172.168.0.40:27017/goodReadsDB'
 
 mongoose.connect(MONGO_URL, {
     autoReconnect: true,
