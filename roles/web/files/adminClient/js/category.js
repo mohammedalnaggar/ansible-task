@@ -10,7 +10,7 @@ categoryAddBtn.addEventListener("click", function (evt) {
       addRow(1,"categoriesTable", category_arr)
     }
   };
-  xhttp.open("POST", "http://127.0.0.1:5000/admin/categories");
+  xhttp.open("POST", "http://172.168.0.30:5000/admin/categories");
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     "name": document.getElementById("categoryAddTF").value
@@ -25,7 +25,7 @@ function editCategories(uri) {
       let category_arr = [response._id, response.name]
     }
   };
-  xhttp.open("POST", `http://127.0.0.1:5000/admin/categories/${uri}/update`);
+  xhttp.open("POST", `http://172.168.0.30:5000/admin/categories/${uri}/update`);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     "name": document.getElementById("categoryEditTF").value
@@ -40,7 +40,7 @@ function listCategories() {
       listRows(this.response, "categoriesTable")
     }
   };
-  xhttp.open("GET", "http://127.0.0.1:5000/admin/categories");
+  xhttp.open("GET", "http://172.168.0.30:5000/admin/categories");
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send()
 };

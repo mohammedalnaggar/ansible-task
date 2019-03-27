@@ -10,7 +10,7 @@ bookAddBtn.addEventListener("click", function (evt) {
       addRow(2,"booksTable",book_arr)
     }
   };
-  xhttp.open("POST", "http://127.0.0.1:5000/admin/books");
+  xhttp.open("POST", "http://172.168.0.30:5000/admin/books");
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     "picture":localStorage.getItem("current_image_name"),
@@ -32,7 +32,7 @@ bookEditBtn.addEventListener("click",(evt)=>{
       // addRow("authorsTable",author_arr)
     }
   };
-  xhttp.open("POST", `http://127.0.0.1:5000/admin/books/${id}/edit`);
+  xhttp.open("POST", `http://172.168.0.30:5000/admin/books/${id}/edit`);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(JSON.stringify({
     "picture":localStorage.getItem("current_image_name"),
@@ -49,7 +49,7 @@ function listBooks() {
       listRows(this.response,"booksTable")
     }
   };
-  xhttp.open("GET", "http://127.0.0.1:5000/admin/books");
+  xhttp.open("GET", "http://172.168.0.30:5000/admin/books");
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send()
 };
