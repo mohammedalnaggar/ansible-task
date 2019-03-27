@@ -4,3 +4,6 @@
   become: true
   roles:
    - web
+  handlers:
+   - name: restart apache
+     service: name=httpd state=restarted

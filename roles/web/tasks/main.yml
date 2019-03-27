@@ -8,18 +8,22 @@
     name: httpd
     state: started
 
-- name: copying front end files to web server
+- name: copying admin front end files to web server
   copy:
     src: adminClient
     dest: /var/www/html
+  notify: restart apache
 
 - name: copying user front end files to web server
   copy:  
     src: userClient
-    dest: /ver/www/html
+    dest: /var/www/html
+  notify: restart apache
 
 - name: change apache server configuration
   copy: 
     src: httpd.conf
     dest: /etc/httpd/conf/httpd.conf
+  notify: restart apache
+
 

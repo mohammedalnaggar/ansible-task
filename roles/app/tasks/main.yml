@@ -5,14 +5,16 @@
   with_items:
     - nodejs
     - npm
+
 - name: install forever package
   npm: name=forever state=present global=yes
+
 - name: create nodejs path
   file: 
     path: /var/nodejs
     state: directory
 
-- name: copy server.js file
+- name: copy nodeJS server files
   copy:
     src: nodeJS_server
     dest: /var/nodejs/
@@ -24,9 +26,6 @@
   command: forever list
   register: forever_list
   changed_when: false
-
-- name: start NODEJS APP
-  command: node /var/nodejs/nodeJS_server/index.js
 
 - name: start nodejs app
   command: forever start /var/nodejs/nodeJS_server/index.js

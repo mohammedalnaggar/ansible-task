@@ -9,6 +9,11 @@
     name: mongodb-org
     state: present
 
+- name: copy the mongo.conf file to DB server
+  copy:
+    src: mongod.conf
+    dest: /etc/mongod.conf
+
 - name: changing the conf file ownership
   file:
     path: /etc/mongod.conf
@@ -16,8 +21,8 @@
     group: mongod
     mode: 0644
 
-- name: start MongoDB
+- name: restart MongoDB
   service:
     name: mongod
-    state: started
+    state: restarted
 
