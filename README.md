@@ -2,7 +2,7 @@
 
 In this project we have 4 machines created on the same network ( created on AWS or with Vagrant )
 	
-	master machine:	172.168.0.10	( controller machine .. copy the repo content to that machine 
+	master machine:	172.168.0.10	( controller machine .. clone this repo to that machine 
 									  and install ansible on it )
 	web machine: 	172.168.0.20	( apache server .. with forwarded port 8090 )
 	app machine:	172.168.0.30	( nodeJs application )
@@ -14,7 +14,9 @@ Using ssh-kygen on master machine, connect the other machines to the master
 
 To run all roles on all machines at once, run the following ansible command on the master machine
 	 
-	ansible-playbook runAll.yml
+	# RUN THIS COMMAND INSIDE THE REPO DIRECTORY:
+	
+		ansible-playbook runAll.yml
 	
 To view the web pages content open a browser on the local host and insert the following in the URL 
 
@@ -26,7 +28,7 @@ By default the admin project is the running one
 
 # =============================================
 
-To change the project to be a user from the master machine inside the repo: 
+To change the project to be a user:
 
 	# RUN THIS COMMAND INSIDE THE REPO DIRECTORY:
 	
@@ -42,7 +44,7 @@ To change the project to be a user from the master machine inside the repo:
 				DocumentRoot "/var/www/html/userClient"
 				DirectoryIndex users_index.html
 	
-	# COPY THE CHANGES TO THE WEB SERVER AND RESTART IT BY RUNNING THE FOLLOWING INSIDE THE REPO DIR:
+	# COPY THE CHANGES TO THE WEB SERVER AND RESTART IT BY RUNNING THE FOLLOWING INSIDE THE REPO DIRECTORY:
 	
 		ansible-playbook web.yml
 
