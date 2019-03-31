@@ -4,10 +4,8 @@
   become: true
   tasks:
     - name: installing epel-release package and ntp
-      yum: name={{ item }} state=installed 
-      with_items:
-        - epel-release
-        - ntp
+      yum: name=['epel-release', 'ntp'] state=installed 
+ 
     - name: start ntpd
       service:
         name: ntpd
