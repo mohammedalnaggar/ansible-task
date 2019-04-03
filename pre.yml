@@ -3,8 +3,10 @@
   hosts: general
   become: true
   tasks:
-    - name: installing epel-release package and ntp
-      yum: name=['epel-release', 'ntp'] state=installed 
+    - name: installing epel-release and ntp packages
+      yum: 
+        name: ['epel-release', 'ntp'] 
+        state: installed 
  
     - name: start ntpd
       service:
